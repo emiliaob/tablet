@@ -16,14 +16,13 @@ header h1{
     text-align: center;
     font-size: 3em;
 }
-.container, .container2{
+.container{
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
     text-align: center;
     margin: auto;
-    row-gap: 5px;
    
 }
 
@@ -34,19 +33,36 @@ header h1{
     border: 2px solid #FFFFFF;
     border-radius: 15px;
     margin: 15px;
-    padding: 10px 10px;
+    padding: 10px;
+    background-color: white;
 }
-nav li{
+.navigation{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+nav a{
+    display: flex;
+}
+/* nav li{
     display:flex;
     flex-direction: column;
     align-items: center;
-}
+} */
+
 .active{
  text-transform: uppercase;
  border: dashed 2px #ffffff;
+ border-radius: 5px;
+}
+.active a::before{
+    content: '\1F4DA';
 }
 nav a:visited{
-    color: blue;
+    color: black;
 }
 
 div header{
@@ -80,20 +96,21 @@ img{
     flex-wrap: wrap; 
     justify-content: space-around;
     align-items: center;
-    width: 90%;
+    
     
 }
 .tip{
     margin: 12px;
-    background-color: #ffe045;
-    flex-basis: 400px;
+    padding: 10px;
+    background-color: #ffffff;
+    flex-basis: 300px;
     border-radius: 15px;
 
 
 }
 .tip header{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
+    background-color: #ffe045;
 }
 .center{
     display: block;
@@ -105,7 +122,7 @@ img{
 .picture{
     transform: rotate(-20deg);
 }
-    
+
 
 .bio{
     border: 2px solid #ffe045;
@@ -115,6 +132,7 @@ img{
     margin-left: auto;
     margin-right: auto;
     width: 90% ;   
+    background-color: #ffffff;
 }
     a.skip{
     background:#96bfff;
@@ -125,7 +143,13 @@ img{
     -webkit-transition: top 1s ease-out;
     transition: top 1s ease-out;
     z-index: 1;}
-@media screen and (min-width: 650px) {
+    .reviews{
+        border:#ffe045 2px dashed;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    
+@media screen and (min-width: 648px) {
 
  a.skip:focus{
         top:20px;
@@ -133,28 +157,72 @@ img{
         font-weight: bold;
         text-decoration-style: solid;
 }
+
  .container2{
      display: flex;
-     flex-direction: row;
      flex-wrap: wrap;
-     flex-basis: 200px;
+     padding: 20px;
+     justify-content: space-around; 
+     grid-gap: 5px;
  }
+
  .container{
      grid-template-columns: 1fr 1fr;
-     /* Editing the grid on the main page */
+     /* Editing the grid on the main page to display books next to each other */
  }
  .book{
      max-height: 400px;
      
     /* editing the scrollable size on the main page grid */
  }
- .all_pictures{
-     display: grid;
-     grid-template-columns: 2;
-     grid-column: 1/span-1;
-     /* make 2 columns in the grid
-     have the pictures go every other */
+ .tip{
+    height: 300px;
+    overflow: scroll;
+    /* Making the tips of similar size */
+}
+
+.navigation{
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+/* Spreading the nav out */
+}
+.all_pictures{
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 1fr;
+    /* background-size: cover; */
+    /* Altering the grid for the pictures */
+}
+.center{
+    transform: none;
+     width: 20em;
+    margin-left:auto;
+    margin-right: auto;
+}
+.dif{
+    grid-column: 2/ span 2;
+}
+.picture{
+    grid-column: 2 / span 1;
+}
+.reviews{
+    min-height: 200px;
+    overflow: scroll;
+    background-color: #ffffff;
+    flex-basis: 300px;
+    text-align: center;
+}
+ .reviews :nth-child(2n){
+     order: 1;
+ }
  }
 
-}
+ }
+
+
+
+
+
+
 
